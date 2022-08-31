@@ -1,0 +1,215 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Add car</title>
+    <link rel="stylesheet" type="text/css" media="all" href="../static/style.css" th:href="@{/style.css}" />
+</head>
+<body>
+<header>
+    <img src="../static/Logo.jpg" th:src="@{/Logo.jpg}">
+    <nav>
+        <ul>
+            <li><a href="/index" th:href="@{/index}">Home</a></li>
+            <li><a href="/viewCars" th:href="@{/viewCars}">View Cars</a></li>
+            <li><a href="/vintageCars" th:href="@{/vintageCars}">Vintage Cars</a></li>
+            <li><a href="/contact" th:href="@{/contact}">Contact</a></li>
+            <li><a href="/logout" th:href="@{/logout}">LogOut</a></li>
+        </ul>
+    </nav>
+</header>
+<div class="form-style" style="margin-top: 100px;">
+    <h2>Add a new car</h2>
+    <form action="#" th:action="@{/saveCar}" th:object="${carObject}" method="post">
+        <input type="text" th:field="*{model}" placeholder="Enter the model of car"  required>
+        <input type="text" th:field="*{colour}" placeholder="Enter the colour of car" required>
+        <input type="number" th:field="*{price}" min="0" step="0.01" placeholder="Enter the price of car" required>
+        <input type="text" th:field="*{brand}" placeholder="Enter the brand of car" required>
+        <input type="number" th:field="*{year}" min="0" step="0.01" placeholder="Enter the year of car" required>
+        <input type="text" th:field="*{picture}" placeholder="Add pictures of car" required>
+
+
+        <form >
+            <select name="carType" th:field="*{carType}">
+                <option th:each="carType : ${T(project.entity.CarType).values()}"
+                        th:value="${carType }" th:text="${carType .displayEnum}"></option>
+            </select>
+            <div class="form-group col-md-8">
+                <input type="submit" class="btn btn-success" value="Submit">
+                <input type="reset" class="btn btn-success" value="Reset"/>
+
+
+            </div>
+        </form>
+
+
+    </form>
+</div>
+</body>
+</html>
+
+
+
+
+
+
+
+<!--<!DOCTYPE HTML>-->
+<!--<html xmlns:th="http://www.thymeleaf.org">-->
+<!--<head>-->
+<!--    <meta charset="utf-8">-->
+<!--    <meta http-equiv="x-ua-compatible" content="ie=edge">-->
+<!--    <title>Save Car</title>-->
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1">-->
+<!--    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">-->
+<!--    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">-->
+<!--    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">-->
+<!--    <style>-->
+<!--    h1 {-->
+<!--  font-size: 80px;-->
+<!--  color: #C70039 ;-->
+<!--  font-family: "Lucida Sans",  cursive;-->
+<!--  position: absolute;-->
+<!--  left: 700px;-->
+<!--  top: -350px;-->
+<!--}-->
+<!--* {box-sizing: border-box;}-->
+
+<!--body {-->
+<!--  margin: 0;-->
+<!--  font-family: "Lucida Sans",  cursive;-->
+<!--}-->
+
+<!--.topnav {-->
+<!--  overflow: hidden;-->
+<!--  background-color: ;-->
+<!--}-->
+
+<!--.topnav a {-->
+<!--  float: left;-->
+<!--  display: block;-->
+<!--  color: #575656;-->
+<!--  text-align: center;-->
+<!--  padding: 14px 16px;-->
+<!--  text-decoration: none;-->
+<!--  font-size: 25px;-->
+<!--}-->
+
+<!--.topnav a:hover {-->
+<!--  background-color: #BAF3BC;-->
+<!--  color: black;-->
+<!--}-->
+
+
+
+
+
+<!--    </style>-->
+<!--</head>-->
+<!--<body>-->
+<!--<style>-->
+<!--     body { background-image: url('https://wallup.net/wp-content/uploads/2018/10/04/209337-cars-drawings-white-background.jpg'); background-repeat: no-repeat; background-attachment: fixed; background-size: cover; }-->
+
+<!--</style>-->
+
+
+<!--<div class="topnav">-->
+<!--    <a class="/" href="/index">Home</a>-->
+<!--    <a href="/viewCars">All Cars</a>-->
+<!--    <a href="#contact">Contact</a>-->
+<!--</div>-->
+<!--&lt;!&ndash; POST Car&ndash;&gt;-->
+<!--<div class="container my-5">-->
+<!--    <h1>Add Car</h1>-->
+
+<!--                <form action="#" th:action="@{/saveCar}" th:object="${carObject}" method="post">-->
+<!--                    <div class="row">-->
+
+<!--                        <div class="form-group col-md-8">-->
+<!--                            <label for="model" class="col-form-label">Model</label>-->
+<!--                            <input type="text" th:field="*{model}" class="form-control"-->
+<!--                                   id="model" placeholder="Model"/>-->
+<!--                        </div>-->
+
+<!--                        <div class="form-group col-md-8">-->
+<!--                            <label for="colour" class="col-form-label">Colour</label>-->
+<!--                            <input type="text" th:field="*{colour}" class="form-control"-->
+<!--                                   id="colour" placeholder="Colour"/>-->
+<!--                        </div>-->
+<!--                        <div class="form-group col-md-8">-->
+<!--                            <label for="price" class="col-form-label">Price</label>-->
+<!--                            <input type="text" th:field="*{price}" class="form-control"-->
+<!--                                   id="price" placeholder="Price"/>-->
+<!--                        </div>-->
+
+<!--                        <div class="form-group col-md-8">-->
+<!--                            <label for="brand" class="col-form-label">Brand</label>-->
+<!--                            <input type="text" th:field="*{brand}" class="form-control"-->
+<!--                                   id="brand" placeholder="Brand"/>-->
+<!--                        </div>-->
+
+
+<!--                        <div class="form-group col-md-8">-->
+<!--                        <label for="year" class="col-form-label">Year</label>-->
+<!--                        <input type="text" th:field="*{year}" class="form-control"-->
+<!--                               id="year" placeholder="Year"/>-->
+<!--                    </div>-->
+
+<!--&lt;!&ndash;            <div class="form-group col-md-8">&ndash;&gt;-->
+<!--&lt;!&ndash;                <label for="usage" class="col-form-label">Usage</label>&ndash;&gt;-->
+<!--&lt;!&ndash;                <input type="text" th:field="*{usage}" class="form-control"&ndash;&gt;-->
+<!--&lt;!&ndash;                       id="usage" placeholder="Usage"/>&ndash;&gt;-->
+<!--&lt;!&ndash;            </div>&ndash;&gt;-->
+
+
+<!--                    <div class="form-group col-md-8">-->
+<!--                        <label for="picture" class="col-form-label">Picture</label>-->
+<!--                        <input type="text" th:field="*{picture}" class="form-control"-->
+<!--                               id="picture" placeholder="Picture"/>-->
+<!--                    </div>-->
+
+<!--                <div class="form-group col-md-8">-->
+<!--                    <label class="col-form-label">Car type:</label>-->
+<!--                    <div class="col-sm-8" align="left">-->
+
+<!--                        <form >-->
+<!--                        <select name="carType" th:field="*{carType}">-->
+<!--                            <option th:each="carType : ${T(project.entity.CarType).values()}"-->
+<!--                                    th:value="${carType }" th:text="${carType .displayEnum}"></option>-->
+<!--                            </select>-->
+
+
+<!--                        </form>-->
+
+<!--                        </div>-->
+
+<!--                    </div>-->
+<!--                <div class="form-group col-md-8">-->
+<!--                    <input type="submit" class="btn btn-success" value="Submit">-->
+<!--                    <input type="reset" class="btn btn-success" value="Reset"/>-->
+
+
+<!--                </div>-->
+<!--                </div>-->
+
+
+<!--                    &lt;!&ndash;</div>&ndash;&gt;-->
+<!--                    &lt;!&ndash;<div class="form-group col-md-8">&ndash;&gt;-->
+<!--                    &lt;!&ndash;    <label for="sold" class="col-form-label">Sold</label>&ndash;&gt;-->
+<!--                    &lt;!&ndash;    <input type="text" th:field="*{sold}" class="form-control"&ndash;&gt;-->
+<!--                    &lt;!&ndash;           id="sold" placeholder="Sold"/>&ndash;&gt;-->
+<!--                    &lt;!&ndash;</div>&ndash;&gt;-->
+
+
+
+<!--                    </div>-->
+
+<!--            </div>-->
+<!--            </form>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+<!--</div>-->
+<!--</body>-->
+<!--</html>-->

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Home</title>
+    <link rel="stylesheet" type="text/css" media="all" href="../static/style.css" th:href="@{/style.css}" />
+</head>
+<body>
+<header>
+    <img src="../static/logo.jpg" th:src="@{/logo.jpg}">
+    <nav>
+        <ul>
+            <li><a href="/viewCars" th:href="@{/viewCars}">View Cars</a></li>
+            <li><a href="/vintageCars" th:href="@{/vintageCars}">Vintage Cars</a></li>
+            <li><a href="/contact" th:href="@{/contact}">Contact</a></li>
+            <li>
+                <div sec:authorize="hasRole('ROLE_ADMIN')">
+                    <a class="nav-link" href="/users">All Users</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <div sec:authorize="hasRole('ROLE_USER')">
+                    <a class="nav-link" href="/logout">Logout</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/login">Login</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<div class="container">
+    <div><a href="/viewCars" th:href="@{/viewCars}"><img src="../static/viewcar.jpg" th:src="@{/viewcar.jpg}"></a></div>
+    <div><a href="/vintageCars" th:href="@{/vintageCars}"><img src="../static/vintageC.jpg" th:src="@{/vintageC.jpg}"></a></div>
+</div>
+<br>
+<br>
+<div class="footer">
+    <p>Created by - Vladut Chelement </p>
+</div>
+</body>
+</html>

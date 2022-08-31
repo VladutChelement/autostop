@@ -1,0 +1,253 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Vintage Cars</title>
+    <link rel="stylesheet" type="text/css" media="all" href="../static/style.css" th:href="@{/style.css}" />
+</head>
+<body>
+<header>
+    <img src="../static/Logo.jpg" th:src="@{/Logo.jpg}">
+    <nav>
+        <ul>
+            <li><a href="/index" th:href="@{/index}">Home</a></li>
+            <li><a href="/viewCars" th:href="@{/viewCars}">View Cars</a></li>
+            <li><a href="/contact" th:href="@{/contact}">Contact</a></li>
+            <li class="nav-item">
+                <a class="nav-link" href="/login">Login</a>
+            </li>
+            <li>
+                <div sec:authorize="hasRole('ROLE_USER')">
+                    <a href="/saveVCar" th:href="@{/saveVCar}">Add Car</a>
+                </div>
+            </li>
+            <li>
+                <div sec:authorize="hasRole('ROLE_ADMIN')">
+                    <a class="nav-link" href="/users">All Users</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <div sec:authorize="hasRole('ROLE_USER')">
+                    <a class="nav-link" href="/logout">Logout</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<h1 style="text-align:center; margin-top:100px;">Vintage Cars</h1>
+<table class="cars">
+
+    <tr align="center">
+        <th scope="col">ID</th>
+        <th scope="col">Model</th>
+        <th scope="col">Colour</th>
+        <th scope="col">Price</th>
+        <th scope="col">Brand</th>
+        <th scope="col">Year</th>
+        <th scope="col">Picture</th>
+        <th scope="col">Type</th>
+        <th scope="col">Book</th>
+        <th scope="col">Actions</th>
+    </tr>
+    <tr th:each="vCar: ${vCars}">
+        <td><span th:text="${vCar.id}"> Id </span></td>
+        <td><span th:text="${vCar.model}"> Model </span></td>
+        <td><span th:text="${vCar.colour}"> Colour </span></td>
+        <td><span th:text="${vCar.price}"> Price </span></td>
+        <td><span th:text="${vCar.brand}"> Brand </span></td>
+        <td><span th:text="${vCar.year}"> Year </span></td>
+        <!--                                    <td><span th:text="${car.usage}"> Usage </span></td>-->
+        <td><span th:text="${vCar.picture}"> Picture </span></td>
+        <td><span th:text="${vCar.carType}"> Type </span></td>
+        <!--                                <td th:text="${car.available ? 'Yes' : 'No'}"></td>-->
+        <td>
+            <a th:href="@{'/car/rent/' + ${vCar.id}}">
+                <button type="button" class="btn btn-info" data-toggle="tooltip"
+                        data-html="true"
+                        data-placement="top"
+                        th:attr="title=Book +'&nbsp;'+'&quot;'+${vCar.model}+'&quot;'">
+                    TestDrive
+                </button>
+            </a>
+        </td>
+        <td>
+            <a th:href="@{/updateVCar/{id}(id=${vCar.id})}" class="btn btn-primary"
+               data-toggle="tooltip"
+               th:attr="title=Edit +'&nbsp;'+'&quot;'+${vCar.model}+'&quot;'">Edit</a>
+            <a th:href="@{vintageCar/delete/{id}(id=${vCar.id})}" class="btn btn-primary"
+               onclick="return confirm('Are you sure you want to delete this item?');">Delete</a>
+        </td>
+    </tr>
+</table>
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--<!DOCTYPE html>-->
+<!--<html lang="en" xmlns:th="http://www.thymeleaf.org">-->
+<!--<head>-->
+<!--    <meta charset="ISO-8859-1">-->
+<!--    <title>Vintage Cars</title>-->
+<!--    <link rel="stylesheet" type="text/css" media="all" href="../static/style.css" th:href="@{/style.css}" />-->
+<!--</head>-->
+<!--<body>-->
+<!--<header>-->
+<!--    <img src="../static/logo.jpg" th:src="@{/logo.jpg}">-->
+<!--    <nav>-->
+<!--        <ul>-->
+<!--            <li><a href="/index" th:href="@{/index}">Home</a></li>-->
+<!--            <li>-->
+<!--                <div sec:authorize="hasRole('ROLE_USER')">-->
+<!--                    <a href="/saveVCar" th:href="@{/saveVCar}">Add Car</a>-->
+<!--                </div>-->
+<!--            </li>-->
+<!--            <li><a href="/viewCars" th:href="@{/viewCars}">View Cars</a></li>-->
+<!--            <li><a href="/contact" th:href="@{/contact}">Contact</a></li>-->
+<!--            <li>-->
+<!--                <div sec:authorize="hasRole('ROLE_ADMIN')">-->
+<!--                    <a class="nav-link" href="/users">All Users</a>-->
+<!--                </div>-->
+<!--            </li>-->
+<!--            <li class="nav-item">-->
+<!--                <div sec:authorize="hasRole('ROLE_USER')">-->
+<!--                    <a class="nav-link" href="/logout">Logout</a>-->
+<!--            </li>-->
+<!--            <li class="nav-item">-->
+<!--                <a class="nav-link" href="/login">Login</a>-->
+<!--            </li>-->
+<!--        </ul>-->
+<!--    </nav>-->
+<!--</header>-->
+
+<!--<div class="container my-2">-->
+<!--    <div class="card">-->
+<!--        <div class="card-body">-->
+<!--            <div th:switch="${vCars}" class="container my-5">-->
+<!--                <p class="my-5">-->
+
+<!--                </p>-->
+<!--                <div class="col-md-10">-->
+<!--                    <h2 th:case="null">No record found!</h2>-->
+<!--                    <div th:case="*">-->
+<!--                        <table class="table table-striped table-responsive-md">-->
+
+
+
+
+
+<!--                            <div id="page-content-wrapper">-->
+<!--                                <div class="container-fluid">-->
+<!--                                    <div class="row">-->
+<!--                                        <div class="col-lg-12">-->
+
+<!--                                            <div th:switch="${vCars}">-->
+<!--                                                <table class="table table-striped table-white">-->
+<!--                                            <thead>-->
+<!--                                            <table id="vCars">-->
+<!--                                                <tr>-->
+<!--                                                    <th> ID</th>-->
+<!--                                                    <th> Model</th>-->
+<!--                                                    <th> Colour</th>-->
+<!--                                                    <th> Price</th>-->
+<!--                                                    <th> Brand</th>-->
+<!--                                                    <th> Year</th>-->
+<!--                                                    &lt;!&ndash;                                    <th> Usage</th>&ndash;&gt;-->
+<!--                                                    <th> Picture</th>-->
+<!--                                                    <th> Type</th>-->
+<!--                                                    <th> Update</th>-->
+<!--                                                    <th> Delete</th>-->
+
+<!--                                                </tr>-->
+<!--                                                </thead>-->
+<!--                                                <tbody>-->
+<!--                                                <tr th:each="vCar: ${vCars}">-->
+<!--                                                    <td><span th:text="${vCar.id}"> Id </span></td>-->
+<!--                                                    <td><span th:text="${vCar.model}"> Model </span></td>-->
+<!--                                                    <td><span th:text="${vCar.colour}"> Colour </span></td>-->
+<!--                                                    <td><span th:text="${vCar.price}"> Price </span></td>-->
+<!--                                                    <td><span th:text="${vCar.brand}"> Brand </span></td>-->
+<!--                                                    <td><span th:text="${vCar.year}"> Year </span></td>-->
+<!--                                                    &lt;!&ndash;                                    <td><span th:text="${car.usage}"> Usage </span></td>&ndash;&gt;-->
+<!--                                                    <td><span th:text="${vCar.picture}"> Picture </span></td>-->
+<!--                                                    <td><span th:text="${vCar.carType}"> Type </span></td>-->
+
+<!--                                                    <td>-->
+<!--                                                        <a th:href="@{/updateVCar/{id}(id=${vCar.id})}"-->
+<!--                                                           class="fa fa-edit"/>-->
+<!--                                                    </td>-->
+<!--                                                    <td>-->
+<!--                                                        <a th:href="@{/vintageCar/delete/{id}(id=${vCar.id})}"-->
+<!--                                                           class="fa fa-trash"/>-->
+<!--                                                    <td>-->
+<!--                                                </tr>-->
+<!--                                                </tbody>-->
+<!--                                            </table>-->
+<!--                        </table>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+
+<!--</body>-->
+<!--</html>-->
