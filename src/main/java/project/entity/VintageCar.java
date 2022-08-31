@@ -23,7 +23,7 @@ public class VintageCar {
         @Column(nullable = false)
         private String colour;
         @Column(nullable = false)
-        private Integer price;
+        private String price;
         @Column(nullable = false)
         private String brand;
         @Column(nullable = false)
@@ -40,10 +40,15 @@ public class VintageCar {
         @JoinColumn(name = "user_id", foreignKey = @ForeignKey(name = "id"))
         private MyUser myUser;
 
+        @ManyToOne
+        private RentReturnDate rentReturnDate;
+
+
 
         @Enumerated(EnumType.STRING)
         @ElementCollection(targetClass = CarType.class)
         private Set<CarType> carType;
+
 
 
 

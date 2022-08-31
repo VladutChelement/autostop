@@ -26,7 +26,7 @@ header * {
 }
 
 header li {
-    margin: 20px;
+    margin: 10px;
 }
 
 header li a {
@@ -44,7 +44,7 @@ header li a {
 }
 
 a:hover, a:active {
-    background-color: #2ECC71;
+    background-color: #2E8B57;
     color: white;
 }
 
@@ -117,8 +117,27 @@ max-width: 1000px;
 	text-decoration: none;
 	text-transform: uppercase;
 }
+.form-style input[type="reset"]{
+	-moz-box-shadow: inset 0px 1px 0px 0px #45D6D6;
+	-webkit-box-shadow: inset 0px 1px 0px 0px #45D6D6;
+	box-shadow: inset 0px 1px 0px 0px #45D6D6;
+	background-color: #2ECC71;;
+	border: 1px solid #27A0A0;
+	display: inline-block;
+	cursor: pointer;
+	color: #FFFFFF;
+	font-size: 14px;
+	padding: 8px 18px;
+	text-decoration: none;
+	text-transform: uppercase;
+}
 
-.form-style input[type="submit"]:hover {
+
+.form-style input[type="reset"]:hover {
+	background:linear-gradient(to bottom, #34CACA 5%, #30C9C9 100%);
+	background-color:#34CACA;
+}
+.form-style input[type="reset"]:hover {
 	background:linear-gradient(to bottom, #34CACA 5%, #30C9C9 100%);
 	background-color:#34CACA;
 }
@@ -147,7 +166,7 @@ max-width: 1000px;
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: left;
-  background-color: #4CAF50;
+  background-color: #2E8B57;
   color: white;
 }
 

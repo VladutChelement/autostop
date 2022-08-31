@@ -18,7 +18,7 @@ body {
 
 .topnav {
   overflow: hidden;
-  background-color: #3CB371;
+  background-color: #2E8B57;
 }
 
 .topnav a {
@@ -87,8 +87,8 @@ body {
 
 <div sec:authorize="hasRole('ROLE_ADMIN')">
     <div class="topnav">
-        <a class="/" href="/">Home</a>
-        <a href="/index">Index</a>
+        
+        <a href="/index">Home</a>
         <a href="/logout">Logout</a>
         <div class="search-container">
             <form th:action="@{/users}" method="get">

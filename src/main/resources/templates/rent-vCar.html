@@ -22,7 +22,7 @@
 <br><br>
 <div class="container-fluid">
 
-    <form action="#" th:action="@{'/car/rent/'+ ${car.id}}" method="post" th:object="${rentReturnDate}"
+    <form action="#" th:action="@{'/vCar/rent/'+ ${vCar.id}}" method="post" th:object="${rentReturnDate}"
           style="max-width:400px; margin:0 auto">
 
         <div th:if="${message}" class="alert alert-success text-center">
@@ -39,7 +39,7 @@
         <div class="border border-secondary rounded p-3">
             <div align="center">
                 <h5>Book Test Drive</h5>
-                <h4><i> <p th:text="${car.brand}+${car.model}" ></p></i></h4>
+                <h4><i> <p th:text="${vCar.brand}+${vCar.model}" ></p></i></h4>
             </div><br>
             <div class="form-group row">
                 <label class="col-sm-4 col-form-label">Pickup date:</label>
@@ -54,6 +54,7 @@
                     <input type="text" th:field="*{returnDate}" disabled/>
                 </div>
             </div>
+
 
 
             <div class="text-center">

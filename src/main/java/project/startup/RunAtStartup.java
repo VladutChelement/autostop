@@ -32,8 +32,8 @@ public class RunAtStartup {
         myUser.setAccountNonExpired(true);
         myUser.setAccountNonLocked(true);
         myUser.setCredentialsNonExpired(true);
-        myUser.setEmail("user@gmail.com");
-        myUser.setFullName("Userescu Userila");
+        myUser.setEmail("user0@gmail.com");
+        myUser.setFullName("User0 ");
         myUser.setPasswordConfirm("user0");
         myUser.setRandomTokenEmail("randomToken");
 
@@ -42,7 +42,7 @@ public class RunAtStartup {
         userService.saveUser(myUser);
 
         saveAdminUser();
-        saveAnotherUser();
+
 
 
     }
@@ -61,8 +61,8 @@ public class RunAtStartup {
         myUser.setAccountNonExpired(true);
         myUser.setAccountNonLocked(true);
         myUser.setCredentialsNonExpired(true);
-        myUser.setEmail("user2@gmail.com");
-        myUser.setFullName("Userescu2 Userila2");
+        myUser.setEmail("admin@gmail.com");
+        myUser.setFullName("Admin");
         myUser.setPasswordConfirm("admin");
         myUser.setRandomTokenEmail("randomToken");
 
@@ -70,28 +70,7 @@ public class RunAtStartup {
         userService.saveUser(myUser);
     }
 
-    private void saveAnotherUser() {
 
-        MyUser myUser = new MyUser();
-        myUser.setUsername("user2");
-        myUser.setPassword("user2");
-        myUser.setRandomToken("randomToken");
-        final Set<Role> roles = new HashSet<>();
-        roles.add(new Role(Constants.ROLE_USER));
-        myUser.setRoles(roles);
-        myUser.setEnabled(true);
-        myUser.setAccountNonExpired(true);
-        myUser.setAccountNonLocked(true);
-        myUser.setCredentialsNonExpired(true);
-        myUser.setEmail("user22@gmail.com");
-        myUser.setFullName("Mihai Constantin");
-        myUser.setPasswordConfirm("user2");
-        myUser.setRandomTokenEmail("randomToken");
-
-
-
-        userService.saveUser(myUser);
-    }
 
 
 

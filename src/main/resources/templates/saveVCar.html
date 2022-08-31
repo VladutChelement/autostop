@@ -24,9 +24,9 @@
     <form action="#" th:action="@{/saveVCar}" th:object="${vintageCar}" method="post">
         <input type="text" th:field="*{model}" placeholder="Enter the model of car"  required>
         <input type="text" th:field="*{colour}" placeholder="Enter the colour of car" required>
-        <input type="number" th:field="*{price}" min="0" step="0.01" placeholder="Enter the price of car" required>
+        <input type="text" th:field="*{price}"  placeholder="Enter the price of car" required>
         <input type="text" th:field="*{brand}" placeholder="Enter the brand of car" required>
-        <input type="number" th:field="*{year}" min="0" step="0.01" placeholder="Enter the year of car" required>
+        <input type="number" th:field="*{year}" min="0" step="1.00" placeholder="Enter the year of car" required>
         <tr><td>Add pictures:</td><td><input type="file" name="file" /></td></tr>
 
 

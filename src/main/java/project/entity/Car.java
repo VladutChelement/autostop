@@ -22,7 +22,7 @@ public class Car
     @Column(name = "colour")
     private String colour;
     @Column(name = "price")
-    private Integer price;
+    private String price;
     @Column(name = "brand")
     private String brand;
     @Column(name = "year")

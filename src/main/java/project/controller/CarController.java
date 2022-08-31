@@ -89,7 +89,7 @@ public class CarController {
         Car car = carRepository.getById(id);
         car.setRentReturnDate(rentReturnDate);
         carRepository.save(car);
-        redirectAttributes.addFlashAttribute("message4", "The car has been rented successfully.");
+        redirectAttributes.addFlashAttribute("message", "The car has been rented successfully.");
         return "redirect:/viewCars";
     }
 

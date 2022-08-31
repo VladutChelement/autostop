@@ -7,6 +7,7 @@ public enum CarType {
     Convertible("Convertible"),
     SportsCar("Sports Car"),
     Coupe("Coupe"),
+    Sedan("Sedan"),
     Minivan("Minivan"),
     StationWagon("Station Wagon"),
     PickupTruck("Pickup Truck");
