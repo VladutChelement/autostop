@@ -29,8 +29,7 @@ public class CarController {
 
     @Autowired
     private RentReturnDateRepository rentReturnDateRepository;
-    @Autowired
-    NamedParameterJdbcTemplate jdbc;
+
     //---------------------------------- GET all cars ------------------------------
     @GetMapping("/viewCars")
     public String getAllCars(Model model) {

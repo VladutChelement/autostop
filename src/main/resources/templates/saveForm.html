@@ -3,7 +3,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="ISO-8859-1">
-    <title>Add car</title>
+    <title>Purchase Car</title>
     <link rel="stylesheet" type="text/css" media="all" href="../static/style.css" th:href="@{/style.css}" />
 </head>
 <body>
@@ -20,21 +20,17 @@
     </nav>
 </header>
 <div class="form-style" style="margin-top: 100px;">
-    <h2>Add new car</h2>
-    <form action="#" th:action="@{/saveCar}" th:object="${carObject}" method="post">
-        <input type="text" th:field="*{model}" placeholder="Enter the model of car"  required>
-        <input type="text" th:field="*{colour}" placeholder="Enter the colour of car" required>
-        <input type="number" th:field="*{price}" min="0" step="0.01" placeholder="Enter the price of car" required>
-        <input type="text" th:field="*{brand}" placeholder="Enter the brand of car" required>
-        <input type="number" th:field="*{year}" min="0" step="0.01" placeholder="Enter the year of car" required>
-         <tr><td>Add pictures:</td><td><input type="file" name="file" /></td></tr>
+    <h2>Purchase Car</h2>
+    <form action="#" th:action="@{/saveForm}" th:object="${formObject}" method="post">
+        <input type="text" th:field="*{name}" placeholder="Enter your name"  required>
+        <input type="text" th:field="*{telephone}" placeholder="Enter telephone number" required>
+        <input type="number" th:field="*{offer}" min="0" step="0.01" placeholder="Your price offer" required>
+        <input type="text" th:field="*{message}" placeholder="Enter a message" required>
+
+
 
 
         <form >
-            <select name="carType" th:field="*{carType}">
-                <option th:each="carType : ${T(project.entity.CarType).values()}"
-                        th:value="${carType }" th:text="${carType .displayEnum}"></option>
-            </select>
             <div class="form-group col-md-8">
                 <input type="submit" class="btn btn-success" value="Submit">
                 <input type="reset" class="btn btn-success" value="Reset"/>

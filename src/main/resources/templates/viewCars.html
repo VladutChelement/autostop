@@ -5,6 +5,7 @@
     <meta charset="ISO-8859-1">
     <title>View cars</title>
     <link rel="stylesheet" type="text/css" media="all" href="../static/style.css" th:href="@{/style.css}" />
+
 </head>
 <body>
 <header>
@@ -45,6 +46,7 @@
         <th scope="col">Picture</th>
         <th scope="col">Type</th>
         <th scope="col">Book</th>
+        <th scope="col">Purchase</th>
         <th scope="col">Actions</th>
     </tr>
     <tr th:each="car : ${cars}" align="center">
@@ -68,11 +70,21 @@
             </a>
         </td>
         <td>
-            <a th:href="@{/updateCar/{id}(id=${car.id})}" class="btn btn-primary"
+            <a th:href="@{/saveForm}">
+                <button type="button" class="btn btn-info"
+                        data-toggle="tooltip"
+                        th:attr="title=Buy +'&nbsp;'+'&quot;'+${car.model}+'&quot;'">Purchase</button>
+        </td>
+        <td>
+
+            <a th:href="@{/updateCar/{id}(id=${car.id})}">
+                <button type="button" class="btn btn-info"
                data-toggle="tooltip"
-               th:attr="title=Edit +'&nbsp;'+'&quot;'+${car.model}+'&quot;'">Edit</a>
-            <a th:href="@{car/delete/{id}(id=${car.id})}" class="btn btn-primary"
-               onclick="return confirm('Are you sure you want to delete this item?');">Delete</a>
+               th:attr="title=Edit +'&nbsp;'+'&quot;'+${car.model}+'&quot;'">Edit</button>
+            <a th:href="@{car/delete/{id}(id=${car.id})}">
+                <button type="button" class="btn btn-info" data-toggle="tooltip"
+               onclick="return confirm('Are you sure you want to delete this item?');">Delete</button>
+
         </td>
     </tr>
 </table>
